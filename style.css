@@ -1,0 +1,225 @@
+/* --- Importación de Fuentes --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap');
+
+/* --- Variables de Diseño --- */
+:root {
+    --color-negro: #0a0a0a;
+    --color-blanco: #f5f5f5;
+    --color-gris: #333;
+    --color-acento: #007BFF; /* Un azul vibrante para los detalles */
+    --font-titulos: 'Montserrat', sans-serif;
+    --font-cuerpo: 'Lora', serif;
+}
+
+/* --- Estilos Generales --- */
+body {
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    font-family: var(--font-cuerpo);
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* --- Estilos de Texto --- */
+h1, h2 {
+    font-family: var(--font-titulos);
+    font-weight: 700;
+    color: var(--color-blanco);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+a {
+    color: var(--color-acento);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-blanco);
+    text-shadow: 0 0 8px var(--color-acento);
+}
+
+/* --- Estilos para Páginas de Inicio y Final --- */
+.splash-page .image-link img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 2rem;
+    border: 3px solid var(--color-gris);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.splash-page .image-link:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--color-acento);
+}
+
+.final-page img {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* --- Página 2: Música --- */
+.music-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.music-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-gris);
+}
+
+.music-column h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.next-section {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.next-section img {
+    width: 100px;
+    height: auto;
+}
+
+/* --- Página 3: Carta --- */
+.letter-content {
+    text-align: left;
+    max-width: 700px;
+    margin: auto;
+}
+
+.letter-content p {
+    margin-bottom: 2.5rem;
+}
+
+.letter-media {
+    margin: 2rem auto;
+    max-width: 500px;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Botones --- */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-family: var(--font-titulos);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-blanco);
+    background-color: var(--color-acento);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    color: var(--color-blanco);
+}
+
+.decision-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.button.no {
+    background-color: var(--color-gris);
+}
+
+.button.no:hover {
+    background-color: #555;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .music-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .decision-buttons {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+}
