@@ -207,4 +207,30 @@ a:hover { color: var(--color-blanco-puro); }
     }
     .text-container { text-align: center; }
     .decision-buttons, .music-page .next-section { flex-direction: column; }
+    /* --- ESTILOS PARA LA PÁGINA JUGUETONA (segura.html) --- */
+
+.playful-page .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 4rem);
+    text-align: center;
+}
+
+.playful-buttons-container {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    /* Necesario para que el botón absoluto se posicione correctamente */
+    position: relative;
+    width: 400px;
+    height: 50px;
+}
+
+#runaway-btn {
+    /* Le damos una transición suave para que el movimiento sea fluido */
+    transition: top 0.3s ease-out, left 0.3s ease-out;
+}
 }
