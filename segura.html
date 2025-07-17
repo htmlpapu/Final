@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Segura?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="playful-page">
+    <div class="container">
+        <h1>¿Estás realmente segura?</h1>
+        <p>A veces, el miedo nos hace huir de lo que más queremos...</p>
+
+        <div class="playful-buttons-container">
+            <!-- El botón que se escapa -->
+            <button id="runaway-btn" class="button no">Sí, estoy segura</button>
+
+            <!-- El botón de escape -->
+            <a href="respuesta-si.html" class="button">No, me arriesgo 💞</a>
+        </div>
+    </div>
+
+    <script>
+        const runawayBtn = document.getElementById('runaway-btn');
+        let clickCount = 0;
+
+        // Usamos 'mouseover' para que se mueva antes de que puedan hacer clic
+        runawayBtn.addEventListener('mouseover', () => {
+            clickCount++;
+
+            if (clickCount < 6) {
+                // Obtenemos las dimensiones de la ventana
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                // Obtenemos las dimensiones del botón
+                const btnWidth = runawayBtn.offsetWidth;
+                const btnHeight = runawayBtn.offsetHeight;
+
+                // Calculamos una posición aleatoria, asegurándonos de que no se salga de la pantalla
+                const newTop = Math.random() * (viewportHeight - btnHeight);
+                const newLeft = Math.random() * (viewportWidth - btnWidth);
+
+                runawayBtn.style.position = 'absolute';
+                runawayBtn.style.top = newTop + 'px';
+                runawayBtn.style.left = newLeft + 'px';
+            } else {
+                // Después de 6 intentos, el botón se rinde
+                runawayBtn.textContent = 'Está bien, lo entiendo... 💔';
+                // Removemos el listener de mouseover para que deje de moverse
+                runawayBtn.replaceWith(runawayBtn.cloneNode(true));
+                // Y ahora sí, al hacer clic, redirige
+                document.getElementById('runaway-btn').addEventListener('click', () => {
+                    window.location.href = 'respuesta-no.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
